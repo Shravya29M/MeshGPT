@@ -15,7 +15,7 @@ print(f"REPO_ROOT set to: {REPO_ROOT}")
 print(f"POINTCLOUD_ROOT set to: {POINTCLOUD_ROOT}")
 print(f"OUTPUT_ROOT set to: {OUTPUT_ROOT}\n")
 
-d
+
 def pointcloud_to_alpha_mesh(points, alpha=0.09):
     """
     points: (N, 3) numpy array
