@@ -7,9 +7,9 @@ import numpy as np
 import open3d as o3d
 
 
-REPO_ROOT = "/Users/shravyamunugala/Documents/Github/Not-MeshGPT"
-POINTCLOUD_ROOT = os.path.join(REPO_ROOT, "exported_pointclouds")
-OUTPUT_ROOT = os.path.join(REPO_ROOT, "exported_meshes_alpha")  # Changed output folder name
+REPO_ROOT = "/Users/aditikannan/Documents/Github/Not-MeshGPT"
+POINTCLOUD_ROOT = os.path.join(REPO_ROOT, "exported_pointclouds/taichi_output")
+OUTPUT_ROOT = os.path.join(REPO_ROOT, "exported_meshes_alpha/taichi_output")  # Changed output folder name
 
 print(f"REPO_ROOT set to: {REPO_ROOT}")
 print(f"POINTCLOUD_ROOT set to: {POINTCLOUD_ROOT}")
@@ -179,38 +179,34 @@ def main():
     print("\n*** Using Alpha Shapes (NOT Poisson) ***")
     print("Alpha Shapes only triangulates existing points - no surface hallucination!\n")
 
-    for category in sorted(os.listdir(POINTCLOUD_ROOT)):
-        cat_dir = os.path.join(POINTCLOUD_ROOT, category)
-        if not os.path.isdir(cat_dir):
-            continue
+    os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
-        print(f"\n=== Category: {category} ===")
-        out_cat_dir = os.path.join(OUTPUT_ROOT, category)
-        os.makedirs(out_cat_dir, exist_ok=True)
+    npy_files = sorted(
+        f for f in os.listdir(POINTCLOUD_ROOT)
+        if f.endswith(".npy")
+    )
 
-        # Only use *_recon.npy files
-        npy_files = sorted(
-            f for f in os.listdir(cat_dir)
-            if f.endswith(".npy")
+    if not npy_files:
+        print("No .npy files found in folder!")
+        return
+
+    for fname in npy_files:
+        pc_path = os.path.join(POINTCLOUD_ROOT, fname)
+        base, _ = os.path.splitext(fname)
+        out_base = os.path.join(OUTPUT_ROOT, base)
+
+        process_pointcloud_file(
+            pc_path,
+            out_base,
+            alpha=0.09,
+            visualize=False
         )
 
-        if not npy_files:
-            print("  (no *_recon.npy files found)")
-            continue
+    print("\nAll Alpha Shape meshes generated!")
+    print("Check folder:", OUTPUT_ROOT)
 
-        for fname in npy_files:
-            pc_path = os.path.join(cat_dir, fname)
-            base, _ = os.path.splitext(fname)
-            out_base = os.path.join(out_cat_dir, base)
 
-            process_pointcloud_file(
-                pc_path,
-                out_base,
-                alpha=0.09,  # Adjust this: smaller = more detail, larger = smoother
-                visualize=False  # Set to True to preview first mesh
-            )
-
-    print("\nAll Alpha Shape meshes generated.")
+    
     print("\nTIP: If meshes have holes, try increasing alpha (e.g., 0.05 or 0.1)")
     print("     If meshes are too smooth, try decreasing alpha (e.g., 0.01 or 0.02)")
     print("\nTo view with wireframe in Open3D, use:")
