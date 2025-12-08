@@ -7,7 +7,7 @@ import numpy as np
 import open3d as o3d
 
 
-REPO_ROOT = "/Users/shravyamunugala/Documents/Github/Not-MeshGPT"
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 POINTCLOUD_ROOT = os.path.join(REPO_ROOT, "exported_pointclouds")
 OUTPUT_ROOT = os.path.join(REPO_ROOT, "exported_meshes_alpha")  # Changed output folder name
 
