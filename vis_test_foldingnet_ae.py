@@ -104,7 +104,10 @@ def main():
     # -----------------------------
     # Load model + checkpoint
     # -----------------------------
-    ckpt_path = "checkpoints_foldingnet/foldingnet_epoch280.pth"  # you can change this path
+
+    # ckpt_path = "checkpoints_foldingnet/foldingnet_epoch280.pth"  # you can change this path
+    ckpt_path = "checkpoints_taichi_pc/best_model.pth"
+
 
     model = TransformerFoldingAE(num_points=2048, latent_dim=256).to(device)
     model = load_checkpoint_safely(model, ckpt_path, device)
@@ -141,7 +144,8 @@ def main():
     # -----------------------------
     # EXPORT POINT CLOUDS FOR MESHING
     # -----------------------------
-    export_dir = "exported_pointclouds/foldingnet_ae_base"
+    # export_dir = "exported_pointclouds/foldingnet_ae_base"
+    export_dir = "exported_pointclouds/improved_phyics_pc"
     os.makedirs(export_dir, exist_ok=True)
 
     np.save(os.path.join(export_dir, f"sample_{fixed_index}_orig.npy"), original)

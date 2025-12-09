@@ -7,9 +7,9 @@ import numpy as np
 import open3d as o3d
 
 
-REPO_ROOT = "/Users/aditikannan/Documents/Github/Not-MeshGPT"
-POINTCLOUD_ROOT = os.path.join(REPO_ROOT, "exported_pointclouds/taichi_output")
-OUTPUT_ROOT = os.path.join(REPO_ROOT, "exported_meshes_alpha/taichi_output")  # Changed output folder name
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
+POINTCLOUD_ROOT = os.path.join(REPO_ROOT, "exported_pointclouds/improved_phyics_pc")
+OUTPUT_ROOT = os.path.join(REPO_ROOT, "improved_meshes_alpha/taichi_output")  # Changed output folder name
 
 print(f"REPO_ROOT set to: {REPO_ROOT}")
 print(f"POINTCLOUD_ROOT set to: {POINTCLOUD_ROOT}")
