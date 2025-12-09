@@ -20,8 +20,8 @@ def get_device():
 
 def export_reconstructions(
         data_root="data/modelnet10_pc_2048",
-        checkpoint="checkpoints_transformer_pp/transformer_foldingpp_epoch99.pth",
-        output_dir="exported_pointclouds",
+        checkpoint="/users/cnaraya2/mesh-dl/Not-MeshGPT/checkpoints_foldingnet_monitored/model_epoch80.pth",
+        output_dir="exported_pointclouds_charu",
         num_samples=20  # number of test samples to export
     ):
 

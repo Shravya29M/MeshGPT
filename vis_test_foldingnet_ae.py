@@ -40,18 +40,14 @@ def icp_align(src_np, tgt_np, threshold=0.05):
 def main():
     device = get_device()
     print("Using device:", device)
-
-    # use TEST split only
     dataset = ModelNet10PC("data/modelnet10_pc_2048", split="test")
     print("Total test samples:", len(dataset))
 
     idx = np.random.randint(0, len(dataset))
     print("Using index:", idx)
-    original = dataset[idx]   # (2048,3), numpy
-
-    # load FoldingNetAE with matching checkpoint
+    original = dataset[idx]   
     model = TransformerFoldingAE(num_points=2048, latent_dim=256).to(device)
-    ckpt_path = "checkpoints_foldingnet/foldingnet_epoch1.pth"  # pick your best
+    ckpt_path = "checkpoints_foldingnet/foldingnet_epoch1.pth"  
     model.load_state_dict(torch.load(ckpt_path, map_location=device))
     model.eval()
 
@@ -60,7 +56,6 @@ def main():
         recon, _ = model(inp)
         recon = recon.squeeze(0).cpu().numpy()
 
-    # metrics before ICP
     orig_t = torch.tensor(original).float()
     recon_t = torch.tensor(recon).float()
     p0, r0, f0 = precision_recall_f1(recon_t, orig_t)
@@ -69,7 +64,6 @@ def main():
     print("Recall:", r0)
     print("F1:", f0)
 
-    # ICP alignment
     recon_aligned = icp_align(recon, original)
     recon_align_t = torch.tensor(recon_aligned).float()
     p1, r1, f1 = precision_recall_f1(recon_align_t, orig_t)
@@ -78,14 +72,11 @@ def main():
     print("Recall:", r1)
     print("F1:", f1)
 
-    # Open3D GUI
     from open3d.visualization import gui
     app = gui.Application.instance
     app.initialize()
 
-    win = o3d.visualization.O3DVisualizer(
-        "FoldingNetAE: Original + Reconstruction (Aligned)", 1280, 720
-    )
+    win = o3d.visualization.O3DVisualizer( "FoldingNetAE: Original + Reconstruction (Aligned)", 1280, 720)
 
     orig_pcd = to_o3d(original, (0.2, 0.8, 1.0))       # blue
     recon_pcd = to_o3d(recon_aligned, (1.0, 0.4, 0.4)) # red
