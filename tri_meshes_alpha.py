@@ -115,7 +115,6 @@ def main():
 
     print("Point cloud root:", POINTCLOUD_ROOT)
     print("Output mesh root:", OUTPUT_ROOT)
-<<<<<<< HEAD
     for category in sorted(os.listdir(POINTCLOUD_ROOT)):
         cat_dir = os.path.join(POINTCLOUD_ROOT, category)
         if not os.path.isdir(cat_dir):
@@ -129,7 +128,7 @@ def main():
             if f.endswith(".npy")
         )
 
-         for fname in npy_files:
+        for fname in npy_files:
             pc_path = os.path.join(cat_dir, fname)
             base, _ = os.path.splitext(fname)
             out_base = os.path.join(out_cat_dir, base)
@@ -142,45 +141,5 @@ def main():
             )
 
     print("\nAll meshes generated")
-=======
-    print("\n*** Using Alpha Shapes (NOT Poisson) ***")
-    print("Alpha Shapes only triangulates existing points - no surface hallucination!\n")
-
-    os.makedirs(OUTPUT_ROOT, exist_ok=True)
-
-    npy_files = sorted(
-        f for f in os.listdir(POINTCLOUD_ROOT)
-        if f.endswith(".npy")
-    )
-
-    if not npy_files:
-        print("No .npy files found in folder!")
-        return
-
-    for fname in npy_files:
-        pc_path = os.path.join(POINTCLOUD_ROOT, fname)
-        base, _ = os.path.splitext(fname)
-        out_base = os.path.join(OUTPUT_ROOT, base)
-
-        process_pointcloud_file(
-            pc_path,
-            out_base,
-            alpha=0.09,
-            visualize=False
-        )
-
-    print("\nAll Alpha Shape meshes generated!")
-    print("Check folder:", OUTPUT_ROOT)
-
-
-    
-    print("\nTIP: If meshes have holes, try increasing alpha (e.g., 0.05 or 0.1)")
-    print("     If meshes are too smooth, try decreasing alpha (e.g., 0.01 or 0.02)")
-    print("\nTo view with wireframe in Open3D, use:")
-    print("  mesh = o3d.io.read_triangle_mesh('your_mesh.ply')")
-    print("  o3d.visualization.draw_geometries([mesh], mesh_show_wireframe=True)")
-
-
->>>>>>> ad96b4dc3e1704c3a4f78947c299a71084707737
 if __name__ == "__main__":
     main()
