@@ -6,17 +6,15 @@ import open3d as o3d
 import glob
 import random
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.dirname(SCRIPT_DIR)  
-sys.path.insert(0, REPO_ROOT)
 
-from deform_mesh import (
-    deform_upward, deform_bump, deform_sitting, 
+from mesh_deformation.deform_mesh import (
+    deform_upward, deform_bump, deform_sitting,
     deform_sag, deform_squeeze, deform_twist,
     deform_bend, deform_taper, deform_shear,
     deform_bulge, deform_stretch, deform_ripple,
     deform_dent, deform_inflate
 )
+
 
 def load_mesh_from_ply(ply_path):
     mesh = o3d.io.read_triangle_mesh(ply_path)
@@ -81,7 +79,7 @@ def random_deformation(verts):
 
 
 def build_deformation_dataset(
-    mesh_dir="exported_meshes_alpha",
+    mesh_dir="improved_meshes_alpha",
     out_dir="data/deformation_dataset",
     samples_per_category=20,
     split="train"
@@ -102,7 +100,7 @@ def build_deformation_dataset(
         cat_path = os.path.join(mesh_dir, category)
         category_counts[category] = 0
         
-        ply_files = sorted(glob.glob(os.path.join(cat_path, "*_original.ply")))
+        ply_files = sorted(glob.glob(os.path.join(cat_path, "*.ply")))
         
         if not ply_files:
             print(f"No meshes found in {category}")
