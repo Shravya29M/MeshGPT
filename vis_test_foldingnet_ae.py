@@ -86,6 +86,8 @@ def load_checkpoint_safely(model, path, device):
 def main():
     device = get_device()
     print("Using device:", device)
+<<<<<<< HEAD
+=======
 
     # -----------------------------
     # FIXED INDEX FOR CONSISTENT COMPARISON
@@ -95,10 +97,19 @@ def main():
     # -----------------------------
     # Load dataset
     # -----------------------------
+>>>>>>> ad96b4dc3e1704c3a4f78947c299a71084707737
     dataset = ModelNet10PC("data/modelnet10_pc_2048", split="test")
     print("Total test samples:", len(dataset))
     print("Using index:", fixed_index)
 
+<<<<<<< HEAD
+    idx = np.random.randint(0, len(dataset))
+    print("Using index:", idx)
+    original = dataset[idx]   
+    model = TransformerFoldingAE(num_points=2048, latent_dim=256).to(device)
+    ckpt_path = "checkpoints_foldingnet/foldingnet_epoch1.pth"  
+    model.load_state_dict(torch.load(ckpt_path, map_location=device))
+=======
     original = dataset[fixed_index]  # numpy (2048, 3)
 
     # -----------------------------
@@ -111,6 +122,7 @@ def main():
 
     model = TransformerFoldingAE(num_points=2048, latent_dim=256).to(device)
     model = load_checkpoint_safely(model, ckpt_path, device)
+>>>>>>> ad96b4dc3e1704c3a4f78947c299a71084707737
     model.eval()
 
     # -----------------------------
@@ -121,7 +133,6 @@ def main():
         recon, _ = model(inp)
         recon = recon.squeeze(0).cpu().numpy()
 
-    # metrics before ICP
     orig_t = torch.tensor(original).float()
     recon_t = torch.tensor(recon).float()
     p0, r0, f0 = precision_recall_f1(recon_t, orig_t)
@@ -131,11 +142,12 @@ def main():
     print("Recall:", float(r0))
     print("F1:", float(f0))
 
-    # ICP alignment
     recon_aligned = icp_align(recon, original)
     recon_align_t = torch.tensor(recon_aligned).float()
     p1, r1, f1 = precision_recall_f1(recon_align_t, orig_t)
 
+<<<<<<< HEAD
+=======
     print("\n=== After ICP Alignment ===")
     print("Precision:", float(p1))
     print("Recall:", float(r1))
@@ -156,15 +168,20 @@ def main():
     # -----------------------------
     # VISUALIZE USING OPEN3D GUI
     # -----------------------------
+>>>>>>> ad96b4dc3e1704c3a4f78947c299a71084707737
     from open3d.visualization import gui
 
     app = gui.Application.instance
     app.initialize()
 
+<<<<<<< HEAD
+    win = o3d.visualization.O3DVisualizer( "FoldingNetAE: Original + Reconstruction (Aligned)", 1280, 720)
+=======
     win = o3d.visualization.O3DVisualizer(
         "FoldingNetAE: Original + Reconstruction (Aligned)",
         1280, 720
     )
+>>>>>>> ad96b4dc3e1704c3a4f78947c299a71084707737
 
     orig_pcd = to_o3d(original, (0.2, 0.8, 1.0))       # blue
     recon_pcd = to_o3d(recon_aligned, (1.0, 0.4, 0.4)) # red
