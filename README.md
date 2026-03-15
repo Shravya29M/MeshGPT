@@ -1,12 +1,12 @@
 # MeshGPT — Point Cloud Reconstruction & Mesh Generation
 
-> We train a transformer autoencoder to learn compressed representations of 3D shapes, then reconstruct them as triangular meshes — going all the way from raw ModelNet10 files to exported `.ply` and `.obj` geometry.
+> We train a transformer autoencoder to learn compressed representations of 3D shapes, then reconstruct them as triangular meshes, going all the way from raw ModelNet10 files to exported `.ply` and `.obj` geometry.
 
 ---
 
 ## What this is
 
-Working with 3D shapes is messy. Raw meshes are irregular and vary wildly in topology, which makes them hard to feed into learning pipelines. So we convert them into point clouds first — simpler, uniform, and easier to reason about — train a model to compress and reconstruct them, and then convert the output back into actual meshes.
+Working with 3D shapes is messy. Raw meshes are irregular and vary wildly in topology, which makes them hard to feed into learning pipelines. So we convert them into point clouds first-- simpler, uniform, and easier to reason about-- train a model to compress and reconstruct them, and then convert the output back into actual meshes.
 
 The full pipeline looks like this:
 
@@ -35,7 +35,7 @@ The model is a **TransformerFoldingAE**: a Point Transformer encoder that reads 
 
 The core challenge with 3D shape generation: meshes don't fit neatly into standard deep learning frameworks. They're unstructured, have variable vertex counts, and topology can differ dramatically between shapes.
 
-We sidestep that by working in point cloud space, where everything is just a fixed-size matrix of XYZ coordinates. The tricky part is getting *back* to a mesh — that's where alpha shapes come in. Instead of trying to predict mesh connectivity directly, we let the reconstructed point cloud define the surface implicitly and recover the triangulation geometrically.
+We sidestep that by working in point cloud space, where everything is just a fixed-size matrix of XYZ coordinates. The tricky part is getting *back* to a mesh, that's where alpha shapes come in. Instead of trying to predict mesh connectivity directly, we let the reconstructed point cloud define the surface implicitly and recover the triangulation geometrically.
 
 The three-part loss function reflects this too: Chamfer distance makes sure points land in the right place, repulsion keeps them from collapsing into clusters, and smoothness nudges neighboring points to behave coherently.
 
