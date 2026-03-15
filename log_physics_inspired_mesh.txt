@@ -1,0 +1,1679 @@
+Device: cuda
+Train samples: 3426
+Val samples:   485
+
+======================================================================
+TRAINING WITH TAICHI POINT CLOUD QUALITY METRICS
+======================================================================
+
+Epoch 1/280 | Loss: 0.169067 | Val: 0.026710
+
+Epoch 2 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 13512.0462 ± 2354.0753
+Val Quality:   9086.4621 ± 1167.2317
+Min/Max:       7787.4282 / 10979.0082
+New best quality! Saved to checkpoints_taichi_pc/best_model.pth
+Epoch 2/280 | Loss: 0.062827 | Val: 0.014249 | Quality: 13512.0462
+Epoch 3/280 | Loss: 0.069864 | Val: 0.010119
+
+Epoch 4 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 43105.5465 ± 18207.2415
+Val Quality:   34583.7773 ± 7465.6733
+Min/Max:       23330.9742 / 43631.7010
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.1650
+Smoothness: 0.0550
+Epoch 4/280 | Loss: 0.071352 | Val: 0.009893 | Quality: 43105.5465
+Epoch 5/280 | Loss: 0.073791 | Val: 0.008839
+
+Epoch 6 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 27870.4492 ± 10887.9826
+Val Quality:   54772.6086 ± 8508.1318
+Min/Max:       43393.0931 / 67181.1601
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.1815
+Smoothness: 0.0605
+Epoch 6/280 | Loss: 0.070515 | Val: 0.007449 | Quality: 27870.4492
+Epoch 7/280 | Loss: 0.075508 | Val: 0.008120
+
+Epoch 8 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 47196.2764 ± 13396.0856
+Val Quality:   40741.4924 ± 5648.1737
+Min/Max:       32015.4645 / 46422.2110
+
+Quality improving!
+Epoch 8/280 | Loss: 0.074108 | Val: 0.007062 | Quality: 47196.2764
+Epoch 9/280 | Loss: 0.071525 | Val: 0.007053
+
+Epoch 10 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 32319.9410 ± 15573.4872
+Val Quality:   27229.1162 ± 4870.9897
+Min/Max:       22339.6743 / 34679.5035
+
+Quality improving!
+Epoch 10/280 | Loss: 0.070744 | Val: 0.006493 | Quality: 32319.9410
+Checkpoint path is: checkpoints_taichi_pc/model_epoch10.pth
+Epoch 11/280 | Loss: 0.068356 | Val: 0.006739
+
+Epoch 12 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 44541.6647 ± 20154.0378
+Val Quality:   26532.7584 ± 6345.9031
+Min/Max:       18539.2563 / 35231.0077
+Epoch 12/280 | Loss: 0.066213 | Val: 0.006166 | Quality: 44541.6647
+Epoch 13/280 | Loss: 0.064659 | Val: 0.006154
+
+Epoch 14 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 53399.2182 ± 22673.1592
+Val Quality:   33841.2615 ± 11691.6673
+Min/Max:       19460.3692 / 52073.0595
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.1917
+Smoothness: 0.0639
+Epoch 14/280 | Loss: 0.063836 | Val: 0.005850 | Quality: 53399.2182
+Epoch 15/280 | Loss: 0.068832 | Val: 0.006178
+
+Epoch 16 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 35552.9852 ± 16516.8886
+Val Quality:   41160.2564 ± 16420.8268
+Min/Max:       19037.4740 / 60603.0603
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2109
+Smoothness: 0.0703
+Epoch 16/280 | Loss: 0.068254 | Val: 0.005588 | Quality: 35552.9852
+Epoch 17/280 | Loss: 0.073880 | Val: 0.005766
+
+Epoch 18 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 45803.7808 ± 19667.5783
+Val Quality:   37735.1174 ± 16092.1232
+Min/Max:       19731.0962 / 60501.9327
+
+Quality improving!
+Epoch 18/280 | Loss: 0.073847 | Val: 0.005904 | Quality: 45803.7808
+Epoch 19/280 | Loss: 0.071068 | Val: 0.005389
+
+Epoch 20 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 25913.9531 ± 14072.8581
+Val Quality:   33071.4455 ± 21292.8080
+Min/Max:       7018.5194 / 59644.9190
+
+Quality improving!
+Epoch 20/280 | Loss: 0.070617 | Val: 0.005611 | Quality: 25913.9531
+Checkpoint path is: checkpoints_taichi_pc/model_epoch20.pth
+Epoch 21/280 | Loss: 0.067912 | Val: 0.005145
+
+Epoch 22 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 57555.9066 ± 20332.5049
+Val Quality:   50852.9251 ± 24226.4264
+Min/Max:       21359.6634 / 85744.5448
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2228
+Smoothness: 0.0743
+Epoch 22/280 | Loss: 0.065568 | Val: 0.005168 | Quality: 57555.9066
+Epoch 23/280 | Loss: 0.070235 | Val: 0.005050
+
+Epoch 24 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 28661.9726 ± 10661.8246
+Val Quality:   49366.4806 ± 28421.3992
+Min/Max:       12003.7340 / 88176.5788
+Epoch 24/280 | Loss: 0.069185 | Val: 0.006397 | Quality: 28661.9726
+Epoch 25/280 | Loss: 0.069447 | Val: 0.004898
+
+Epoch 26 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 97988.5949 ± 51919.9864
+Val Quality:   56188.5290 ± 26287.6942
+Min/Max:       11741.7934 / 79912.0552
+Epoch 26/280 | Loss: 0.069362 | Val: 0.004751 | Quality: 97988.5949
+Epoch 27/280 | Loss: 0.067284 | Val: 0.004839
+
+Epoch 28 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 155342.9659 ± 225497.4463
+Val Quality:   64017.0092 ± 45229.4829
+Min/Max:       12471.1025 / 133931.3170
+Epoch 28/280 | Loss: 0.065140 | Val: 0.004674 | Quality: 155342.9659
+Epoch 29/280 | Loss: 0.065043 | Val: 0.004704
+
+Epoch 30 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 32891.7054 ± 31165.0347
+Val Quality:   51496.9965 ± 28009.7026
+Min/Max:       14693.5850 / 88678.6405
+
+Quality improving!
+Epoch 30/280 | Loss: 0.064807 | Val: 0.004459 | Quality: 32891.7054
+Checkpoint path is: checkpoints_taichi_pc/model_epoch30.pth
+Epoch 31/280 | Loss: 0.065995 | Val: 0.004770
+
+Epoch 32 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 157661.2586 ± 147465.9572
+Val Quality:   59059.8085 ± 27427.7171
+Min/Max:       18005.4825 / 87934.9724
+Epoch 32/280 | Loss: 0.064203 | Val: 0.004438 | Quality: 157661.2586
+Epoch 33/280 | Loss: 0.063499 | Val: 0.005376
+
+Epoch 34 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 54076.0227 ± 52104.2926
+Val Quality:   60134.2543 ± 36874.0942
+Min/Max:       8215.5975 / 96277.9497
+Epoch 34/280 | Loss: 0.062718 | Val: 0.004502 | Quality: 54076.0227
+Epoch 35/280 | Loss: 0.063524 | Val: 0.004388
+
+Epoch 36 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 117081.2115 ± 154674.5049
+Val Quality:   43647.2618 ± 27270.8500
+Min/Max:       8658.4309 / 71935.1256
+
+Quality improving!
+Epoch 36/280 | Loss: 0.061098 | Val: 0.004426 | Quality: 117081.2115
+Epoch 37/280 | Loss: 0.060063 | Val: 0.004161
+
+Epoch 38 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 39233.1513 ± 31661.7121
+Val Quality:   38249.3888 ± 20817.9023
+Min/Max:       12288.9394 / 67473.5418
+
+Quality improving!
+Epoch 38/280 | Loss: 0.059204 | Val: 0.004386 | Quality: 39233.1513
+Epoch 39/280 | Loss: 0.058017 | Val: 0.004534
+
+Epoch 40 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 156692.7949 ± 188824.8922
+Val Quality:   44910.8668 ± 21517.0491
+Min/Max:       17936.9744 / 75456.5383
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2307
+Smoothness: 0.0769
+Epoch 40/280 | Loss: 0.057604 | Val: 0.004233 | Quality: 156692.7949
+Checkpoint path is: checkpoints_taichi_pc/model_epoch40.pth
+Epoch 41/280 | Loss: 0.061304 | Val: 0.004625
+
+Epoch 42 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 136930.3948 ± 139406.3910
+Val Quality:   34299.9422 ± 21574.5667
+Min/Max:       8905.9427 / 60239.5597
+
+Quality improving!
+Epoch 42/280 | Loss: 0.060477 | Val: 0.004113 | Quality: 136930.3948
+Epoch 43/280 | Loss: 0.060354 | Val: 0.004017
+
+Epoch 44 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 169652.9250 ± 231165.3816
+Val Quality:   47688.0420 ± 22281.3230
+Min/Max:       12876.5419 / 67201.2318
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2487
+Smoothness: 0.0829
+Epoch 44/280 | Loss: 0.060230 | Val: 0.004297 | Quality: 169652.9250
+Epoch 45/280 | Loss: 0.066697 | Val: 0.004218
+
+Epoch 46 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 33721.7474 ± 17143.6125
+Val Quality:   47099.9247 ± 30205.6576
+Min/Max:       9441.6140 / 92218.1366
+Epoch 46/280 | Loss: 0.066410 | Val: 0.004107 | Quality: 33721.7474
+Epoch 47/280 | Loss: 0.065339 | Val: 0.004058
+
+Epoch 48 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 118865.5280 ± 178067.6399
+Val Quality:   59871.1962 ± 30011.6218
+Min/Max:       21293.8719 / 101944.9014
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2736
+Smoothness: 0.0912
+Epoch 48/280 | Loss: 0.066822 | Val: 0.004038 | Quality: 118865.5280
+Epoch 49/280 | Loss: 0.072673 | Val: 0.004000
+
+Epoch 50 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 298477.7378 ± 477327.0000
+Val Quality:   52206.5081 ± 34573.2312
+Min/Max:       11708.3892 / 104518.1660
+
+Quality improving!
+Epoch 50/280 | Loss: 0.070921 | Val: 0.003819 | Quality: 298477.7378
+Checkpoint path is: checkpoints_taichi_pc/model_epoch50.pth
+Epoch 51/280 | Loss: 0.068427 | Val: 0.003984
+
+Epoch 52 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 27068.6215 ± 19144.7034
+Val Quality:   166812.2794 ± 96928.1247
+Min/Max:       20980.4933 / 266629.6498
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.2949
+Smoothness: 0.0983
+Epoch 52/280 | Loss: 0.071678 | Val: 0.003859 | Quality: 27068.6215
+Epoch 53/280 | Loss: 0.074933 | Val: 0.003836
+
+Epoch 54 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 703099.0731 ± 920730.7836
+Val Quality:   53724.2985 ± 38207.3332
+Min/Max:       14827.5817 / 104931.6244
+
+Quality improving!
+Epoch 54/280 | Loss: 0.073050 | Val: 0.003833 | Quality: 703099.0731
+Epoch 55/280 | Loss: 0.074236 | Val: 0.003835
+
+Epoch 56 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 37474.0484 ± 41673.6657
+Val Quality:   49560.7775 ± 33765.2729
+Min/Max:       10882.6601 / 93503.4048
+
+Quality improving!
+Epoch 56/280 | Loss: 0.074654 | Val: 0.003762 | Quality: 37474.0484
+Epoch 57/280 | Loss: 0.068721 | Val: 0.003905
+
+Epoch 58 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 50779.9626 ± 36581.5396
+Val Quality:   103148.1778 ± 105631.6920
+Min/Max:       14857.6162 / 280871.5396
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1038
+Epoch 58/280 | Loss: 0.070240 | Val: 0.003842 | Quality: 50779.9626
+Epoch 59/280 | Loss: 0.074661 | Val: 0.003745
+
+Epoch 60 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 41105.3930 ± 23755.6159
+Val Quality:   96715.4370 ± 85099.9344
+Min/Max:       9730.8964 / 215842.3560
+
+Quality improving!
+Epoch 60/280 | Loss: 0.074121 | Val: 0.004101 | Quality: 41105.3930
+Checkpoint path is: checkpoints_taichi_pc/model_epoch60.pth
+Epoch 61/280 | Loss: 0.069762 | Val: 0.003666
+
+Epoch 62 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1067964.9160 ± 1431002.9827
+Val Quality:   108888.3803 ± 102750.8533
+Min/Max:       17686.2968 / 276768.6061
+Epoch 62/280 | Loss: 0.072383 | Val: 0.003988 | Quality: 1067964.9160
+Epoch 63/280 | Loss: 0.070199 | Val: 0.004016
+
+Epoch 64 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 97945.0166 ± 103600.1248
+Val Quality:   78700.9938 ± 73121.4028
+Min/Max:       10205.8036 / 198440.3787
+
+Quality improving!
+Epoch 64/280 | Loss: 0.070755 | Val: 0.003748 | Quality: 97945.0166
+Epoch 65/280 | Loss: 0.068812 | Val: 0.003651
+
+Epoch 66 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 358249.5247 ± 422217.7732
+Val Quality:   153884.4413 ± 153796.1038
+Min/Max:       13383.2474 / 397858.0540
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1097
+Epoch 66/280 | Loss: 0.071863 | Val: 0.003632 | Quality: 358249.5247
+Epoch 67/280 | Loss: 0.071526 | Val: 0.003554
+
+Epoch 68 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 15476.8689 ± 5844.1168
+Val Quality:   97710.2939 ± 86238.9052
+Min/Max:       15481.3752 / 239360.0979
+
+Quality improving!
+Epoch 68/280 | Loss: 0.071687 | Val: 0.003722 | Quality: 15476.8689
+Epoch 69/280 | Loss: 0.071551 | Val: 0.003626
+
+Epoch 70 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 13171.1835 ± 16150.8326
+Val Quality:   146181.4740 ± 146391.9140
+Min/Max:       10525.4652 / 371509.2464
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1183
+Epoch 70/280 | Loss: 0.069842 | Val: 0.003633 | Quality: 13171.1835
+Checkpoint path is: checkpoints_taichi_pc/model_epoch70.pth
+Epoch 71/280 | Loss: 0.071208 | Val: 0.003521
+
+Epoch 72 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2616644.6132 ± 4503569.3148
+Val Quality:   82659.9536 ± 91760.2188
+Min/Max:       11045.5055 / 236512.8024
+
+Quality improving!
+Epoch 72/280 | Loss: 0.067090 | Val: 0.003496 | Quality: 2616644.6132
+Epoch 73/280 | Loss: 0.069345 | Val: 0.003762
+
+Epoch 74 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 137727.8388 ± 204731.0231
+Val Quality:   144991.0625 ± 128342.6777
+Min/Max:       11488.3515 / 345660.6779
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 74/280 | Loss: 0.069133 | Val: 0.003632 | Quality: 137727.8388
+Epoch 75/280 | Loss: 0.069434 | Val: 0.003496
+
+Epoch 76 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 16785.7138 ± 21140.3268
+Val Quality:   82267.6509 ± 93924.7771
+Min/Max:       4135.6409 / 236233.5097
+
+Quality improving!
+Epoch 76/280 | Loss: 0.066286 | Val: 0.003462 | Quality: 16785.7138
+Epoch 77/280 | Loss: 0.065223 | Val: 0.003605
+
+Epoch 78 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 10842.4884 ± 13994.5172
+Val Quality:   116844.6777 ± 124595.8564
+Min/Max:       14430.5452 / 321809.1445
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 78/280 | Loss: 0.065056 | Val: 0.003533 | Quality: 10842.4884
+Epoch 79/280 | Loss: 0.065517 | Val: 0.003493
+
+Epoch 80 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2201891.6958 ± 3741566.2077
+Val Quality:   347650.1244 ± 366995.8947
+Min/Max:       15803.0691 / 935340.5131
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 80/280 | Loss: 0.067123 | Val: 0.003445 | Quality: 2201891.6958
+Checkpoint path is: checkpoints_taichi_pc/model_epoch80.pth
+Epoch 81/280 | Loss: 0.066977 | Val: 0.003468
+
+Epoch 82 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 27388.6029 ± 39056.8809
+Val Quality:   137812.0007 ± 162707.3658
+Min/Max:       6082.3756 / 406604.3204
+
+Quality improving!
+Epoch 82/280 | Loss: 0.065578 | Val: 0.003380 | Quality: 27388.6029
+Epoch 83/280 | Loss: 0.065156 | Val: 0.003461
+
+Epoch 84 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3427952.6217 ± 3855298.1037
+Val Quality:   73432.0786 ± 65049.3928
+Min/Max:       19725.8141 / 180323.7833
+
+Quality improving!
+Epoch 84/280 | Loss: 0.066458 | Val: 0.003353 | Quality: 3427952.6217
+Epoch 85/280 | Loss: 0.063710 | Val: 0.003440
+
+Epoch 86 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 421678.6162 ± 509073.7556
+Val Quality:   116238.1355 ± 93536.8548
+Min/Max:       12916.4842 / 267787.6659
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 86/280 | Loss: 0.062209 | Val: 0.003473 | Quality: 421678.6162
+Epoch 87/280 | Loss: 0.066195 | Val: 0.003374
+
+Epoch 88 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 379915.9490 ± 608252.2761
+Val Quality:   178808.3676 ± 182629.9697
+Min/Max:       21718.9772 / 481768.1254
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 88/280 | Loss: 0.067234 | Val: 0.003380 | Quality: 379915.9490
+Epoch 89/280 | Loss: 0.065156 | Val: 0.003350
+
+Epoch 90 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 140499.8141 ± 212899.9937
+Val Quality:   72421.1060 ± 66486.1645
+Min/Max:       9731.5702 / 175317.3440
+
+Quality improving!
+Epoch 90/280 | Loss: 0.064301 | Val: 0.003432 | Quality: 140499.8141
+Checkpoint path is: checkpoints_taichi_pc/model_epoch90.pth
+Epoch 91/280 | Loss: 0.063112 | Val: 0.003408
+
+Epoch 92 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 177063.7918 ± 280649.6296
+Val Quality:   102954.9797 ± 66487.0872
+Min/Max:       22449.5633 / 195303.8449
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 92/280 | Loss: 0.060506 | Val: 0.003373 | Quality: 177063.7918
+Epoch 93/280 | Loss: 0.064220 | Val: 0.003315
+
+Epoch 94 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 70041.1832 ± 113115.2415
+Val Quality:   189989.0816 ± 184838.7477
+Min/Max:       10718.7449 / 456895.1695
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 94/280 | Loss: 0.063289 | Val: 0.003311 | Quality: 70041.1832
+Epoch 95/280 | Loss: 0.062742 | Val: 0.003362
+
+Epoch 96 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 102832.4678 ± 165403.7742
+Val Quality:   54038.0694 ± 43561.3463
+Min/Max:       11090.8252 / 115869.3405
+
+Quality improving!
+Epoch 96/280 | Loss: 0.064120 | Val: 0.003296 | Quality: 102832.4678
+Epoch 97/280 | Loss: 0.061244 | Val: 0.003282
+
+Epoch 98 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2490101.2397 ± 4270647.3696
+Val Quality:   212544.8522 ± 220665.0695
+Min/Max:       6612.7648 / 556491.8824
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 98/280 | Loss: 0.060960 | Val: 0.003341 | Quality: 2490101.2397
+Epoch 99/280 | Loss: 0.060719 | Val: 0.003360
+
+Epoch 100 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2045.4608 ± 540.7966
+Val Quality:   57171.7623 ± 74410.6291
+Min/Max:       2817.8824 / 184715.8261
+
+Quality improving!
+Epoch 100/280 | Loss: 0.062591 | Val: 0.003289 | Quality: 2045.4608
+Checkpoint path is: checkpoints_taichi_pc/model_epoch100.pth
+Epoch 101/280 | Loss: 0.059884 | Val: 0.003286
+
+Epoch 102 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1490212.1513 ± 1497455.2385
+Val Quality:   112561.4506 ± 123833.3600
+Min/Max:       12194.9269 / 322839.5877
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 102/280 | Loss: 0.059467 | Val: 0.003340 | Quality: 1490212.1513
+Epoch 103/280 | Loss: 0.061273 | Val: 0.003382
+
+Epoch 104 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 4001.7406 ± 3015.0863
+Val Quality:   73529.7691 ± 91192.5752
+Min/Max:       5107.1254 / 228049.8314
+
+Quality improving!
+Epoch 104/280 | Loss: 0.059950 | Val: 0.003495 | Quality: 4001.7406
+Epoch 105/280 | Loss: 0.059971 | Val: 0.003206
+
+Epoch 106 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 37811.0056 ± 61471.8603
+Val Quality:   162784.4467 ± 182387.6895
+Min/Max:       4939.9332 / 461612.4866
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 106/280 | Loss: 0.058226 | Val: 0.003264 | Quality: 37811.0056
+Epoch 107/280 | Loss: 0.061404 | Val: 0.003247
+
+Epoch 108 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 30508.9691 ± 35485.0009
+Val Quality:   160600.9414 ± 177467.9372
+Min/Max:       6735.0463 / 450880.6706
+Epoch 108/280 | Loss: 0.059978 | Val: 0.003271 | Quality: 30508.9691
+Epoch 109/280 | Loss: 0.059569 | Val: 0.003239
+
+Epoch 110 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 5440.3064 ± 7134.5542
+Val Quality:   76327.1060 ± 94748.0039
+Min/Max:       4694.6303 / 238118.1565
+
+Quality improving!
+Epoch 110/280 | Loss: 0.060567 | Val: 0.003203 | Quality: 5440.3064
+Checkpoint path is: checkpoints_taichi_pc/model_epoch110.pth
+Epoch 111/280 | Loss: 0.057683 | Val: 0.003231
+
+Epoch 112 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 375232.4115 ± 622905.5404
+Val Quality:   85972.8086 ± 78896.5824
+Min/Max:       3824.0774 / 199035.7685
+Epoch 112/280 | Loss: 0.057659 | Val: 0.003292 | Quality: 375232.4115
+Epoch 113/280 | Loss: 0.055740 | Val: 0.003243
+
+Epoch 114 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1068431.6390 ± 1848383.7713
+Val Quality:   183225.1935 ± 168905.1387
+Min/Max:       8413.8507 / 424980.7808
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 114/280 | Loss: 0.055575 | Val: 0.003375 | Quality: 1068431.6390
+Epoch 115/280 | Loss: 0.058811 | Val: 0.003224
+
+Epoch 116 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 117108.5399 ± 200987.6284
+Val Quality:   62458.1591 ± 65805.0851
+Min/Max:       2957.2026 / 168798.2336
+
+Quality improving!
+Epoch 116/280 | Loss: 0.058035 | Val: 0.003338 | Quality: 117108.5399
+Epoch 117/280 | Loss: 0.058280 | Val: 0.003190
+
+Epoch 118 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2232767.7148 ± 3862478.6286
+Val Quality:   135482.8552 ± 140839.6996
+Min/Max:       3966.0355 / 344006.9358
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 118/280 | Loss: 0.058484 | Val: 0.003250 | Quality: 2232767.7148
+Epoch 119/280 | Loss: 0.059715 | Val: 0.003234
+
+Epoch 120 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3481741.5325 ± 6029130.1633
+Val Quality:   78175.0474 ± 89495.8750
+Min/Max:       8653.0383 / 227814.4789
+
+Quality improving!
+Epoch 120/280 | Loss: 0.057431 | Val: 0.003230 | Quality: 3481741.5325
+Checkpoint path is: checkpoints_taichi_pc/model_epoch120.pth
+Epoch 121/280 | Loss: 0.056766 | Val: 0.003227
+
+Epoch 122 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 459171.3652 ± 791051.0044
+Val Quality:   125344.7276 ± 112249.1489
+Min/Max:       11421.3715 / 285144.1363
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 122/280 | Loss: 0.056858 | Val: 0.003259 | Quality: 459171.3652
+Epoch 123/280 | Loss: 0.057703 | Val: 0.003244
+
+Epoch 124 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 12770.3680 ± 20191.2088
+Val Quality:   48429.7897 ± 56244.1058
+Min/Max:       5625.8538 / 142850.1160
+
+Quality improving!
+Epoch 124/280 | Loss: 0.059025 | Val: 0.003261 | Quality: 12770.3680
+Epoch 125/280 | Loss: 0.056879 | Val: 0.003125
+
+Epoch 126 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1003894.3847 ± 1197623.4152
+Val Quality:   107209.0796 ± 109101.7805
+Min/Max:       1559.6998 / 277675.6969
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 126/280 | Loss: 0.058022 | Val: 0.003107 | Quality: 1003894.3847
+Epoch 127/280 | Loss: 0.057248 | Val: 0.003189
+
+Epoch 128 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 720035.3545 ± 1081699.0957
+Val Quality:   187850.3338 ± 234506.4726
+Min/Max:       15306.0521 / 588493.2318
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 128/280 | Loss: 0.059163 | Val: 0.003256 | Quality: 720035.3545
+Epoch 129/280 | Loss: 0.058147 | Val: 0.003109
+
+Epoch 130 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 769645.5255 ± 1323603.7719
+Val Quality:   74038.7595 ± 86438.0157
+Min/Max:       4501.3634 / 220294.9398
+
+Quality improving!
+Epoch 130/280 | Loss: 0.057194 | Val: 0.003222 | Quality: 769645.5255
+Checkpoint path is: checkpoints_taichi_pc/model_epoch130.pth
+Epoch 131/280 | Loss: 0.055436 | Val: 0.003150
+
+Epoch 132 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 102680.2277 ± 110641.8363
+Val Quality:   41160.2643 ± 47568.4390
+Min/Max:       4564.5637 / 122048.3116
+
+Quality improving!
+Epoch 132/280 | Loss: 0.055109 | Val: 0.003196 | Quality: 102680.2277
+Epoch 133/280 | Loss: 0.055083 | Val: 0.003121
+
+Epoch 134 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1376495.8530 ± 2372231.5513
+Val Quality:   55668.5999 ± 66712.6069
+Min/Max:       12351.1512 / 170757.0937
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 134/280 | Loss: 0.053990 | Val: 0.003160 | Quality: 1376495.8530
+Epoch 135/280 | Loss: 0.055892 | Val: 0.003142
+
+Epoch 136 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 16290.5343 ± 17061.3959
+Val Quality:   49004.0682 ± 55933.9685
+Min/Max:       4209.2413 / 143883.4251
+
+Quality improving!
+Epoch 136/280 | Loss: 0.056422 | Val: 0.003035 | Quality: 16290.5343
+Epoch 137/280 | Loss: 0.053976 | Val: 0.003183
+
+Epoch 138 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 5762.9034 ± 6897.3987
+Val Quality:   29713.8450 ± 28855.4786
+Min/Max:       3432.8994 / 78189.9165
+
+Quality improving!
+Epoch 138/280 | Loss: 0.053599 | Val: 0.003192 | Quality: 5762.9034
+Epoch 139/280 | Loss: 0.052989 | Val: 0.003140
+
+Epoch 140 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 93682.8355 ± 133659.5815
+Val Quality:   58524.8094 ± 65093.4906
+Min/Max:       5525.4856 / 168099.8802
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 140/280 | Loss: 0.055126 | Val: 0.003133 | Quality: 93682.8355
+Checkpoint path is: checkpoints_taichi_pc/model_epoch140.pth
+Epoch 141/280 | Loss: 0.055370 | Val: 0.003141
+
+Epoch 142 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2503350.1322 ± 4172805.7723
+Val Quality:   57651.3384 ± 79380.0191
+Min/Max:       3985.9169 / 194653.9972
+Epoch 142/280 | Loss: 0.054416 | Val: 0.003099 | Quality: 2503350.1322
+Epoch 143/280 | Loss: 0.054408 | Val: 0.003184
+
+Epoch 144 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 65113.2165 ± 110080.8644
+Val Quality:   90901.5003 ± 116332.5223
+Min/Max:       4145.6933 / 288812.0137
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 144/280 | Loss: 0.054081 | Val: 0.003136 | Quality: 65113.2165
+Epoch 145/280 | Loss: 0.053982 | Val: 0.003173
+
+Epoch 146 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1180601.4436 ± 2044112.2636
+Val Quality:   32726.3125 ± 36195.8682
+Min/Max:       6128.6948 / 94324.8387
+
+Quality improving!
+Epoch 146/280 | Loss: 0.055759 | Val: 0.003288 | Quality: 1180601.4436
+Epoch 147/280 | Loss: 0.054686 | Val: 0.003168
+
+Epoch 148 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3205887.2806 ± 5522118.6966
+Val Quality:   53081.1353 ± 52063.1749
+Min/Max:       9672.1459 / 138311.9271
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 148/280 | Loss: 0.055196 | Val: 0.003180 | Quality: 3205887.2806
+Epoch 149/280 | Loss: 0.054741 | Val: 0.003084
+
+Epoch 150 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1317666.9433 ± 2138123.9506
+Val Quality:   132836.1029 ± 190400.2124
+Min/Max:       4356.0656 / 460294.9754
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 150/280 | Loss: 0.054453 | Val: 0.003057 | Quality: 1317666.9433
+Checkpoint path is: checkpoints_taichi_pc/model_epoch150.pth
+Epoch 151/280 | Loss: 0.054584 | Val: 0.003108
+
+Epoch 152 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 314920.3688 ± 332351.3233
+Val Quality:   45307.5368 ± 50877.7210
+Min/Max:       4084.5380 / 129940.8304
+
+Quality improving!
+Epoch 152/280 | Loss: 0.055084 | Val: 0.003121 | Quality: 314920.3688
+Epoch 153/280 | Loss: 0.053475 | Val: 0.003132
+
+Epoch 154 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 640747.4239 ± 1107267.4803
+Val Quality:   57365.1819 ± 65101.2858
+Min/Max:       770.6797 / 162194.7060
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 154/280 | Loss: 0.053141 | Val: 0.003101 | Quality: 640747.4239
+Epoch 155/280 | Loss: 0.054697 | Val: 0.003073
+
+Epoch 156 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1200.9163 ± 466.3555
+Val Quality:   97777.2143 ± 132326.4297
+Min/Max:       990.7344 / 323755.7963
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 156/280 | Loss: 0.054099 | Val: 0.003244 | Quality: 1200.9163
+Epoch 157/280 | Loss: 0.054512 | Val: 0.003069
+
+Epoch 158 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 16479.2206 ± 15673.8738
+Val Quality:   119496.8013 ± 122876.4928
+Min/Max:       3620.4517 / 318381.6148
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 158/280 | Loss: 0.053901 | Val: 0.003144 | Quality: 16479.2206
+Epoch 159/280 | Loss: 0.055341 | Val: 0.003069
+
+Epoch 160 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1336343.5895 ± 1944244.9974
+Val Quality:   251426.8050 ± 270840.9632
+Min/Max:       2790.7516 / 673788.0463
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 160/280 | Loss: 0.055764 | Val: 0.003090 | Quality: 1336343.5895
+Checkpoint path is: checkpoints_taichi_pc/model_epoch160.pth
+Epoch 161/280 | Loss: 0.056227 | Val: 0.003133
+
+Epoch 162 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 799.7888 ± 390.3021
+Val Quality:   51781.7356 ± 63126.7502
+Min/Max:       2952.4466 / 159210.3246
+
+Quality improving!
+Epoch 162/280 | Loss: 0.055359 | Val: 0.003046 | Quality: 799.7888
+Epoch 163/280 | Loss: 0.053844 | Val: 0.003041
+
+Epoch 164 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 44187.2619 ± 61774.1798
+Val Quality:   50431.2135 ± 58891.4912
+Min/Max:       6344.9863 / 151373.3810
+Epoch 164/280 | Loss: 0.053261 | Val: 0.003061 | Quality: 44187.2619
+Epoch 165/280 | Loss: 0.052365 | Val: 0.003121
+
+Epoch 166 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 215965.3515 ± 370627.1574
+Val Quality:   69177.3952 ± 100973.6581
+Min/Max:       2588.1321 / 243278.1632
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 166/280 | Loss: 0.052495 | Val: 0.002973 | Quality: 215965.3515
+Epoch 167/280 | Loss: 0.054245 | Val: 0.003082
+
+Epoch 168 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 67088.2142 ± 114841.1871
+Val Quality:   15035.0749 ± 18895.7876
+Min/Max:       2096.1987 / 47635.6984
+
+Quality improving!
+Epoch 168/280 | Loss: 0.054264 | Val: 0.003073 | Quality: 67088.2142
+Epoch 169/280 | Loss: 0.052099 | Val: 0.003109
+
+Epoch 170 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 790.7233 ± 287.8456
+Val Quality:   15967.4417 ± 21591.6131
+Min/Max:       1375.4007 / 53265.4733
+Epoch 170/280 | Loss: 0.052811 | Val: 0.003006 | Quality: 790.7233
+Checkpoint path is: checkpoints_taichi_pc/model_epoch170.pth
+Epoch 171/280 | Loss: 0.053537 | Val: 0.002984
+
+Epoch 172 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1006908.9113 ± 1741063.4051
+Val Quality:   7380.6718 ± 7458.2199
+Min/Max:       1401.5250 / 19686.8650
+
+Quality improving!
+New best quality! Saved to checkpoints_taichi_pc/best_model.pth
+Epoch 172/280 | Loss: 0.052829 | Val: 0.003089 | Quality: 1006908.9113
+Epoch 173/280 | Loss: 0.051254 | Val: 0.003011
+
+Epoch 174 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2683190.9673 ± 4623925.4886
+Val Quality:   32205.2891 ± 34952.1333
+Min/Max:       4658.3423 / 91860.6880
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 174/280 | Loss: 0.052882 | Val: 0.003050 | Quality: 2683190.9673
+Epoch 175/280 | Loss: 0.055295 | Val: 0.002997
+
+Epoch 176 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1498809.8660 ± 2589652.0546
+Val Quality:   13020.3313 ± 12387.6978
+Min/Max:       1580.9903 / 32914.8548
+
+Quality improving!
+Epoch 176/280 | Loss: 0.054100 | Val: 0.002984 | Quality: 1498809.8660
+Epoch 177/280 | Loss: 0.051641 | Val: 0.003137
+
+Epoch 178 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 894.9996 ± 303.6966
+Val Quality:   40793.6713 ± 46015.9881
+Min/Max:       8319.5127 / 119744.2814
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 178/280 | Loss: 0.052457 | Val: 0.003005 | Quality: 894.9996
+Epoch 179/280 | Loss: 0.053860 | Val: 0.002988
+
+Epoch 180 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 174469.0058 ± 300673.7029
+Val Quality:   27373.8520 ± 36746.1303
+Min/Max:       1437.4308 / 90787.7043
+
+Quality improving!
+Epoch 180/280 | Loss: 0.054200 | Val: 0.002970 | Quality: 174469.0058
+Checkpoint path is: checkpoints_taichi_pc/model_epoch180.pth
+Epoch 181/280 | Loss: 0.053064 | Val: 0.003040
+
+Epoch 182 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1194185.2580 ± 2055793.2481
+Val Quality:   20404.0031 ± 19118.0782
+Min/Max:       7020.7189 / 53168.5350
+
+Quality improving!
+Epoch 182/280 | Loss: 0.052046 | Val: 0.003046 | Quality: 1194185.2580
+Epoch 183/280 | Loss: 0.049235 | Val: 0.003035
+
+Epoch 184 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1106.4985 ± 497.7154
+Val Quality:   11213.4626 ± 12762.1820
+Min/Max:       3367.7364 / 33309.7768
+
+Quality improving!
+Epoch 184/280 | Loss: 0.050425 | Val: 0.003001 | Quality: 1106.4985
+Epoch 185/280 | Loss: 0.051282 | Val: 0.002994
+
+Epoch 186 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3712721.4612 ± 6258901.7578
+Val Quality:   36216.6211 ± 41601.0433
+Min/Max:       7036.7906 / 107820.9142
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 186/280 | Loss: 0.051027 | Val: 0.002993 | Quality: 3712721.4612
+Epoch 187/280 | Loss: 0.054281 | Val: 0.002982
+
+Epoch 188 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 69673.2751 ± 118850.8521
+Val Quality:   21498.2490 ± 25745.0469
+Min/Max:       3177.1286 / 65919.3964
+
+Quality improving!
+Epoch 188/280 | Loss: 0.054619 | Val: 0.003213 | Quality: 69673.2751
+Epoch 189/280 | Loss: 0.053283 | Val: 0.003004
+
+Epoch 190 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 83338.8782 ± 142906.6657
+Val Quality:   27357.5405 ± 24611.5375
+Min/Max:       7500.7086 / 68853.4400
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 190/280 | Loss: 0.052937 | Val: 0.003021 | Quality: 83338.8782
+Checkpoint path is: checkpoints_taichi_pc/model_epoch190.pth
+Epoch 191/280 | Loss: 0.053882 | Val: 0.003089
+
+Epoch 192 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1716.6887 ± 1416.4871
+Val Quality:   21446.0313 ± 22039.0405
+Min/Max:       3748.0863 / 58397.5657
+
+Quality improving!
+Epoch 192/280 | Loss: 0.053217 | Val: 0.003022 | Quality: 1716.6887
+Epoch 193/280 | Loss: 0.052321 | Val: 0.002963
+
+Epoch 194 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 4576.6662 ± 6475.9474
+Val Quality:   21864.2197 ± 20964.3246
+Min/Max:       4990.2341 / 57504.5280
+Epoch 194/280 | Loss: 0.050961 | Val: 0.003001 | Quality: 4576.6662
+Epoch 195/280 | Loss: 0.050288 | Val: 0.003044
+
+Epoch 196 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3446429.1266 ± 5965218.5198
+Val Quality:   86437.5429 ± 110193.2876
+Min/Max:       2605.5464 / 275395.9981
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 196/280 | Loss: 0.052829 | Val: 0.003006 | Quality: 3446429.1266
+Epoch 197/280 | Loss: 0.054469 | Val: 0.002965
+
+Epoch 198 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 42396.3213 ± 72583.0973
+Val Quality:   11978.0776 ± 12276.9921
+Min/Max:       3159.3254 / 32925.8952
+
+Quality improving!
+Epoch 198/280 | Loss: 0.053916 | Val: 0.002954 | Quality: 42396.3213
+Epoch 199/280 | Loss: 0.053292 | Val: 0.002996
+
+Epoch 200 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 11495.6734 ± 15913.3190
+Val Quality:   107969.6895 ± 157897.2981
+Min/Max:       9634.9679 / 381297.3517
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 200/280 | Loss: 0.052613 | Val: 0.002966 | Quality: 11495.6734
+Checkpoint path is: checkpoints_taichi_pc/model_epoch200.pth
+Epoch 201/280 | Loss: 0.053664 | Val: 0.003013
+
+Epoch 202 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1045158.1219 ± 1808924.8214
+Val Quality:   125915.3344 ± 162419.5639
+Min/Max:       13008.4079 / 405497.8680
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 202/280 | Loss: 0.052838 | Val: 0.003089 | Quality: 1045158.1219
+Epoch 203/280 | Loss: 0.051912 | Val: 0.002939
+
+Epoch 204 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 54704.5444 ± 92697.3424
+Val Quality:   8733.4602 ± 11699.1403
+Min/Max:       1560.0297 / 28989.8440
+
+Quality improving!
+Epoch 204/280 | Loss: 0.051357 | Val: 0.002981 | Quality: 54704.5444
+Epoch 205/280 | Loss: 0.050596 | Val: 0.002999
+
+Epoch 206 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 35427.5296 ± 58037.2137
+Val Quality:   23864.8263 ± 30792.7362
+Min/Max:       4220.4521 / 77150.3641
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 206/280 | Loss: 0.050657 | Val: 0.002984 | Quality: 35427.5296
+Epoch 207/280 | Loss: 0.053388 | Val: 0.002997
+
+Epoch 208 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 464274.3549 ± 773132.7693
+Val Quality:   39369.3422 ± 51111.8760
+Min/Max:       3813.3552 / 127547.1477
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 208/280 | Loss: 0.051903 | Val: 0.002990 | Quality: 464274.3549
+Epoch 209/280 | Loss: 0.053239 | Val: 0.002986
+
+Epoch 210 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1383.5989 ± 1088.1923
+Val Quality:   35475.8454 ± 51116.5724
+Min/Max:       993.4796 / 123800.4097
+
+Quality improving!
+Epoch 210/280 | Loss: 0.053621 | Val: 0.003090 | Quality: 1383.5989
+Checkpoint path is: checkpoints_taichi_pc/model_epoch210.pth
+Epoch 211/280 | Loss: 0.050414 | Val: 0.002981
+
+Epoch 212 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2968089.6946 ± 3010204.3695
+Val Quality:   20135.8711 ± 13956.4296
+Min/Max:       7064.5338 / 42988.0480
+
+Quality improving!
+Epoch 212/280 | Loss: 0.051552 | Val: 0.003019 | Quality: 2968089.6946
+Epoch 213/280 | Loss: 0.050768 | Val: 0.002908
+
+Epoch 214 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3241.5511 ± 3849.0883
+Val Quality:   40322.3767 ± 57176.4953
+Min/Max:       905.8127 / 139065.1566
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 214/280 | Loss: 0.050753 | Val: 0.003000 | Quality: 3241.5511
+Epoch 215/280 | Loss: 0.053499 | Val: 0.003060
+
+Epoch 216 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3771919.5882 ± 2444375.0941
+Val Quality:   19316.0571 ± 21796.8596
+Min/Max:       2964.2640 / 56530.7376
+
+Quality improving!
+Epoch 216/280 | Loss: 0.052984 | Val: 0.002984 | Quality: 3771919.5882
+Epoch 217/280 | Loss: 0.051265 | Val: 0.002949
+
+Epoch 218 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1244.1453 ± 803.4191
+Val Quality:   15972.3338 ± 21829.7167
+Min/Max:       1830.2788 / 53732.2928
+
+Quality improving!
+Epoch 218/280 | Loss: 0.049592 | Val: 0.002949 | Quality: 1244.1453
+Epoch 219/280 | Loss: 0.049733 | Val: 0.002998
+
+Epoch 220 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3040124.4188 ± 4670490.2779
+Val Quality:   103225.3543 ± 159834.6944
+Min/Max:       2386.9682 / 379896.4399
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 220/280 | Loss: 0.050550 | Val: 0.002969 | Quality: 3040124.4188
+Checkpoint path is: checkpoints_taichi_pc/model_epoch220.pth
+Epoch 221/280 | Loss: 0.053596 | Val: 0.002959
+
+Epoch 222 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 582877.4884 ± 826006.5756
+Val Quality:   16352.9133 ± 25224.6346
+Min/Max:       1034.7908 / 60029.9954
+
+Quality improving!
+Epoch 222/280 | Loss: 0.052797 | Val: 0.002940 | Quality: 582877.4884
+Epoch 223/280 | Loss: 0.051410 | Val: 0.002979
+
+Epoch 224 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2323.8563 ± 3064.7573
+Val Quality:   14278.4235 ± 20191.7222
+Min/Max:       755.5427 / 49058.7427
+
+Quality improving!
+Epoch 224/280 | Loss: 0.052166 | Val: 0.003118 | Quality: 2323.8563
+Epoch 225/280 | Loss: 0.050828 | Val: 0.002975
+
+Epoch 226 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1745538.1955 ± 2586338.7907
+Val Quality:   11288.8763 ± 13831.1146
+Min/Max:       1280.7961 / 35129.0505
+
+Quality improving!
+Epoch 226/280 | Loss: 0.052210 | Val: 0.002943 | Quality: 1745538.1955
+Epoch 227/280 | Loss: 0.050582 | Val: 0.002940
+
+Epoch 228 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 22659.2411 ± 38349.5787
+Val Quality:   20638.7656 ± 25473.5670
+Min/Max:       3144.2841 / 64649.0901
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 228/280 | Loss: 0.049882 | Val: 0.002936 | Quality: 22659.2411
+Epoch 229/280 | Loss: 0.053669 | Val: 0.002909
+
+Epoch 230 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 4540281.3292 ± 7847790.6792
+Val Quality:   8243.9505 ± 10630.2757
+Min/Max:       1324.8378 / 26637.1345
+
+Quality improving!
+Epoch 230/280 | Loss: 0.052438 | Val: 0.003007 | Quality: 4540281.3292
+Checkpoint path is: checkpoints_taichi_pc/model_epoch230.pth
+Epoch 231/280 | Loss: 0.051692 | Val: 0.003023
+
+Epoch 232 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2303254.2399 ± 3988435.7887
+Val Quality:   24060.8101 ± 24648.2246
+Min/Max:       5530.5872 / 65967.4922
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 232/280 | Loss: 0.051461 | Val: 0.002912 | Quality: 2303254.2399
+Epoch 233/280 | Loss: 0.054819 | Val: 0.003013
+
+Epoch 234 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 28315.1614 ± 44889.7404
+Val Quality:   31178.2781 ± 39458.1576
+Min/Max:       5739.2658 / 99424.9026
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 234/280 | Loss: 0.052614 | Val: 0.002916 | Quality: 28315.1614
+Epoch 235/280 | Loss: 0.052828 | Val: 0.002899
+
+Epoch 236 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 960634.1846 ± 1662484.6035
+Val Quality:   1580.0807 ± 707.7871
+Min/Max:       561.1101 / 2379.3540
+
+Quality improving!
+New best quality! Saved to checkpoints_taichi_pc/best_model.pth
+Epoch 236/280 | Loss: 0.051301 | Val: 0.002956 | Quality: 960634.1846
+Epoch 237/280 | Loss: 0.050924 | Val: 0.002995
+
+Epoch 238 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 551.3361 ± 209.7831
+Val Quality:   2545.8765 ± 2001.2845
+Min/Max:       1310.5879 / 6010.9375
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 238/280 | Loss: 0.050351 | Val: 0.002946 | Quality: 551.3361
+Epoch 239/280 | Loss: 0.051709 | Val: 0.002999
+
+Epoch 240 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 5515131.8272 ± 9501993.6888
+Val Quality:   22447.1478 ± 23728.4036
+Min/Max:       6516.1817 / 63401.2794
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 240/280 | Loss: 0.052008 | Val: 0.002934 | Quality: 5515131.8272
+Checkpoint path is: checkpoints_taichi_pc/model_epoch240.pth
+Epoch 241/280 | Loss: 0.052101 | Val: 0.002975
+
+Epoch 242 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 571175.8032 ± 983081.8099
+Val Quality:   17665.3463 ± 24062.5758
+Min/Max:       1123.6497 / 59094.9160
+
+Quality improving!
+Epoch 242/280 | Loss: 0.052633 | Val: 0.002973 | Quality: 571175.8032
+Epoch 243/280 | Loss: 0.051716 | Val: 0.002990
+
+Epoch 244 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1075908.9591 ± 1586447.7246
+Val Quality:   33844.1597 ± 44685.0054
+Min/Max:       2315.7691 / 110901.8067
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 244/280 | Loss: 0.050861 | Val: 0.002950 | Quality: 1075908.9591
+Epoch 245/280 | Loss: 0.053467 | Val: 0.002901
+
+Epoch 246 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 909559.1248 ± 1068838.9327
+Val Quality:   15890.3931 ± 20008.4197
+Min/Max:       1296.9920 / 50308.7527
+
+Quality improving!
+Epoch 246/280 | Loss: 0.052659 | Val: 0.002904 | Quality: 909559.1248
+Epoch 247/280 | Loss: 0.050947 | Val: 0.002964
+
+Epoch 248 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2580816.5756 ± 3904203.5798
+Val Quality:   21507.2497 ± 23397.5611
+Min/Max:       2923.6272 / 61384.0304
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 248/280 | Loss: 0.052274 | Val: 0.002919 | Quality: 2580816.5756
+Epoch 249/280 | Loss: 0.050325 | Val: 0.002976
+
+Epoch 250 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 7886.9766 ± 12693.7024
+Val Quality:   7835.6547 ± 9981.7725
+Min/Max:       1303.9330 / 25073.6176
+
+Quality improving!
+Epoch 250/280 | Loss: 0.050965 | Val: 0.002929 | Quality: 7886.9766
+Checkpoint path is: checkpoints_taichi_pc/model_epoch250.pth
+Epoch 251/280 | Loss: 0.049719 | Val: 0.002910
+
+Epoch 252 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1251157.1819 ± 2162967.1789
+Val Quality:   10615.9229 ± 7949.9890
+Min/Max:       3780.4437 / 24000.1615
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 252/280 | Loss: 0.049660 | Val: 0.002965 | Quality: 1251157.1819
+Epoch 253/280 | Loss: 0.051924 | Val: 0.002893
+
+Epoch 254 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 616828.5841 ± 1066698.5899
+Val Quality:   14094.2556 ± 16854.3075
+Min/Max:       3929.8461 / 43280.0688
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 254/280 | Loss: 0.051184 | Val: 0.002882 | Quality: 616828.5841
+Epoch 255/280 | Loss: 0.052491 | Val: 0.002931
+
+Epoch 256 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 838.4481 ± 216.8374
+Val Quality:   38886.5265 ± 43812.5627
+Min/Max:       5613.7015 / 113123.0382
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 256/280 | Loss: 0.051634 | Val: 0.002975 | Quality: 838.4481
+Epoch 257/280 | Loss: 0.052733 | Val: 0.002910
+
+Epoch 258 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 12396573.0793 ± 14739541.5537
+Val Quality:   26050.1906 ± 29529.8032
+Min/Max:       3599.3295 / 76424.4533
+
+Quality improving!
+Epoch 258/280 | Loss: 0.051868 | Val: 0.002967 | Quality: 12396573.0793
+Epoch 259/280 | Loss: 0.050287 | Val: 0.002976
+
+Epoch 260 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3619309.3607 ± 4771824.5854
+Val Quality:   18438.1388 ± 21505.5536
+Min/Max:       2951.4527 / 55450.0642
+
+Quality improving!
+Epoch 260/280 | Loss: 0.051152 | Val: 0.002972 | Quality: 3619309.3607
+Checkpoint path is: checkpoints_taichi_pc/model_epoch260.pth
+Epoch 261/280 | Loss: 0.051376 | Val: 0.002920
+
+Epoch 262 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 1865356.0166 ± 1947318.9531
+Val Quality:   8983.7795 ± 9330.5406
+Min/Max:       2395.6071 / 25043.0730
+
+Quality improving!
+Epoch 262/280 | Loss: 0.051794 | Val: 0.002947 | Quality: 1865356.0166
+Epoch 263/280 | Loss: 0.049333 | Val: 0.002936
+
+Epoch 264 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 860829.2521 ± 1489055.0116
+Val Quality:   44893.3077 ± 52941.0863
+Min/Max:       9196.6884 / 136194.2036
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 264/280 | Loss: 0.049455 | Val: 0.002931 | Quality: 860829.2521
+Epoch 265/280 | Loss: 0.052664 | Val: 0.002948
+
+Epoch 266 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 734057.5514 ± 1252498.8707
+Val Quality:   12479.9147 ± 10447.6042
+Min/Max:       2565.3008 / 28363.1487
+
+Quality improving!
+Epoch 266/280 | Loss: 0.052379 | Val: 0.002909 | Quality: 734057.5514
+Epoch 267/280 | Loss: 0.052516 | Val: 0.002921
+
+Epoch 268 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 273819.7858 ± 445831.6893
+Val Quality:   8741.7841 ± 9519.4551
+Min/Max:       1495.1443 / 25115.5292
+
+Quality improving!
+Epoch 268/280 | Loss: 0.052571 | Val: 0.002889 | Quality: 273819.7858
+Epoch 269/280 | Loss: 0.050572 | Val: 0.002933
+
+Epoch 270 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 2674133.1375 ± 4625900.2004
+Val Quality:   11005.9046 ± 10958.2676
+Min/Max:       3289.2901 / 29835.1634
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 270/280 | Loss: 0.049276 | Val: 0.002904 | Quality: 2674133.1375
+Checkpoint path is: checkpoints_taichi_pc/model_epoch270.pth
+Epoch 271/280 | Loss: 0.051728 | Val: 0.002921
+
+Epoch 272 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 7177078.2378 ± 12429196.6857
+Val Quality:   69117.5446 ± 96246.5895
+Min/Max:       6082.2673 / 235068.9370
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 272/280 | Loss: 0.051568 | Val: 0.002937 | Quality: 7177078.2378
+Epoch 273/280 | Loss: 0.051580 | Val: 0.002912
+
+Epoch 274 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 3031170.5209 ± 5208634.5018
+Val Quality:   18372.1239 ± 20748.7219
+Min/Max:       2691.4199 / 54085.4389
+
+Quality improving!
+Epoch 274/280 | Loss: 0.052137 | Val: 0.002960 | Quality: 3031170.5209
+Epoch 275/280 | Loss: 0.049890 | Val: 0.002981
+
+Epoch 276 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 216972.8345 ± 374721.5354
+Val Quality:   8219.2486 ± 9678.9350
+Min/Max:       1300.0192 / 24830.8137
+
+Quality improving!
+Epoch 276/280 | Loss: 0.049892 | Val: 0.002914 | Quality: 216972.8345
+Epoch 277/280 | Loss: 0.049534 | Val: 0.002891
+
+Epoch 278 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 25263.4913 ± 41695.4782
+Val Quality:   3507.1353 ± 3317.2608
+Min/Max:       719.2759 / 9158.7553
+
+Quality improving!
+Epoch 278/280 | Loss: 0.048076 | Val: 0.002879 | Quality: 25263.4913
+Epoch 279/280 | Loss: 0.047106 | Val: 0.002981
+
+Epoch 280 Computing quality with Taichi...
+
+Quality Metrics (Taichi on Point Clouds):
+Train Quality: 345345.6637 ± 596346.7134
+Val Quality:   6200.7479 ± 4840.6517
+Min/Max:       1002.6505 / 11693.6418
+
+Quality degrading! Increasing regularization:
+Repulsion:  0.3000
+Smoothness: 0.1200
+Epoch 280/280 | Loss: 0.048158 | Val: 0.002948 | Quality: 345345.6637
+Checkpoint path is: checkpoints_taichi_pc/model_epoch280.pth
+
+Training curves saved to checkpoints_taichi_pc/training_curves.png
+
+Best quality: 1580.0807 at epoch 236
+Final quality: 6200.7479
+Improvement: 31.8%
