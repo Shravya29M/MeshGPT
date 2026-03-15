@@ -1,55 +1,56 @@
 # MeshGPT — Point Cloud Reconstruction & Mesh Generation
 
-> A transformer-based autoencoder that learns to reconstruct 3D point clouds from a compact latent representation, then converts those reconstructions into watertight triangular meshes using alpha-shape surface recovery.
+> We train a transformer autoencoder to learn compressed representations of 3D shapes, then reconstruct them as triangular meshes — going all the way from raw ModelNet10 files to exported `.ply` and `.obj` geometry.
 
 ---
 
-## Overview
+## What this is
 
-MeshGPT takes raw 3D mesh models (ModelNet10), converts them into point clouds, and trains a **TransformerFoldingAE** — a hybrid architecture combining a Point Transformer encoder with a two-stage FoldingNet++ decoder — to reconstruct those point clouds from a 256-dimensional bottleneck. Reconstructed point clouds are then lifted back into triangular meshes via alpha shapes, producing export-ready `.ply` and `.obj` files.
+Working with 3D shapes is messy. Raw meshes are irregular and vary wildly in topology, which makes them hard to feed into learning pipelines. So we convert them into point clouds first — simpler, uniform, and easier to reason about — train a model to compress and reconstruct them, and then convert the output back into actual meshes.
 
-The project demonstrates a full 3D understanding pipeline: **mesh → point cloud → latent code → reconstructed point cloud → mesh**.
+The full pipeline looks like this:
+
+**raw mesh → point cloud → 256-dim latent code → reconstructed point cloud → triangular mesh**
+
+The model is a **TransformerFoldingAE**: a Point Transformer encoder that reads an unordered set of 2048 points and squeezes them into a latent vector, paired with a FoldingNet++ decoder that unfolds a flat 2D grid into 3D space in two passes. The final meshes come from running alpha shape reconstruction on the decoded output.
 
 ---
 
 ## Table of Contents
 
-- [Motivation](#motivation)
-- [Features](#features)
+- [Why we built it this way](#why-we-built-it-this-way)
+- [What's included](#whats-included)
 - [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
-- [Evaluation](#evaluation)
-- [Example Outputs](#example-outputs)
+- [Project structure](#project-structure)
+- [Getting started](#getting-started)
+- [Running the pipeline](#running-the-pipeline)
+- [Evaluating results](#evaluating-results)
+- [Example outputs](#example-outputs)
 - [Contributing](#contributing)
 - [License](#license)
 
 ---
 
-## Motivation
+## Why we built it this way
 
-Generative models for 3D shapes face a fundamental challenge: meshes are irregular, unordered, and vary in topology — making them hard to model directly. Point clouds offer a permutation-invariant alternative, but converting learned point cloud representations back into usable meshes is non-trivial.
+The core challenge with 3D shape generation: meshes don't fit neatly into standard deep learning frameworks. They're unstructured, have variable vertex counts, and topology can differ dramatically between shapes.
 
-This project addresses that gap by:
+We sidestep that by working in point cloud space, where everything is just a fixed-size matrix of XYZ coordinates. The tricky part is getting *back* to a mesh — that's where alpha shapes come in. Instead of trying to predict mesh connectivity directly, we let the reconstructed point cloud define the surface implicitly and recover the triangulation geometrically.
 
-1. Using a **transformer encoder** to capture global shape structure via self-attention over unordered point sets.
-2. Using a **FoldingNet++ decoder** to unfold a learned 2D grid into 3D space in two stages, with residual refinement.
-3. Applying **alpha shape reconstruction** to recover a triangulated surface from the reconstructed point cloud.
+The three-part loss function reflects this too: Chamfer distance makes sure points land in the right place, repulsion keeps them from collapsing into clusters, and smoothness nudges neighboring points to behave coherently.
 
 ---
 
-## Features
+## What's included
 
-- **TransformerFoldingAE** — end-to-end autoencoder for 3D point clouds
-- **Point Transformer Encoder** — 4-layer multi-head self-attention with adaptive max pooling
-- **FoldingNet++ Decoder** — two-stage folding with learned 2D offsets and residual refinement
-- **Multi-component loss** — Chamfer distance + repulsion + Laplacian smoothness
-- **Alpha shape mesh export** — reconstructions exported as `.ply`, `.obj`, and `.mtl`
-- **ICP-aligned evaluation** — precision, recall, and F1 metrics with optional rigid alignment
-- **Apple Silicon support** — MPS device detection alongside CUDA and CPU
-- **ModelNet10 preprocessing** — mesh → normalized point cloud pipeline included
+- **TransformerFoldingAE** — the full autoencoder, encoder + decoder
+- **Point Transformer Encoder** — 4 layers of multi-head self-attention with adaptive max pooling
+- **FoldingNet++ Decoder** — two-stage folding from a learned 2D grid, with a small residual refinement on top
+- **Multi-term loss** — Chamfer + repulsion + Laplacian smoothness, weighted and tunable
+- **Mesh export** — alpha shape reconstruction to `.ply`, `.obj`, and `.mtl`
+- **ICP-aligned evaluation** — precision/recall/F1 with and without rigid alignment
+- **Apple Silicon / CUDA / CPU** — device detection is automatic, nothing to configure
+- **Preprocessing script** — converts raw ModelNet10 `.off` files into normalized `.npy` point clouds
 
 ---
 
@@ -101,77 +102,76 @@ Reconstructed Point Cloud (B, 2048, 3)
    Triangular Mesh (.ply / .obj)
 ```
 
-**Loss Function:**
+**Loss:**
 
 ```
-L = L_chamfer + 0.15 × L_repulsion + 0.05 × L_smoothness
+L = L_chamfer  +  0.15 × L_repulsion  +  0.05 × L_smoothness
 ```
 
-| Component | Description |
-|-----------|-------------|
-| `L_chamfer` | Bidirectional minimum point-to-point distances |
-| `L_repulsion` | k-NN exponential decay; prevents point collapse |
-| `L_smoothness` | Laplacian term; penalizes deviation from neighbor mean |
+| Term | What it does |
+|------|-------------|
+| `L_chamfer` | Pulls predicted points toward ground-truth and vice versa |
+| `L_repulsion` | Pushes points apart so they don't pile up in one spot |
+| `L_smoothness` | Encourages each point to stay near the mean of its neighbors |
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 MeshGPT/
 ├── scripts/
-│   ├── transformer_folding_ae.py   # Model architecture + loss functions
-│   ├── pytorch_ds.py               # ModelNet10PC dataset class (auto train/val/test split)
-│   └── preprocessing.py            # OFF mesh → normalized .npy point cloud
+│   ├── transformer_folding_ae.py   # Model definition + all three loss functions
+│   ├── pytorch_ds.py               # Dataset class — handles splitting and normalization
+│   └── preprocessing.py            # Converts ModelNet10 .off files to .npy point clouds
 │
-├── training_foldingnet_ae.py       # Training loop (Adam, 80 epochs, batch=4)
-├── eval_transfold.py               # Evaluation: P/R/F1 with optional ICP alignment
-├── vis_test_foldingnet_ae.py       # Interactive Open3D visualization of reconstructions
-├── point_cloud_save.py             # Export reconstructed point clouds to .npy
-├── tri_meshes_alpha.py             # Convert .npy point clouds → alpha shape meshes
-├── testing_pointcloud.py           # Quick viewer for a raw point cloud
-├── testing_triangular_mesh.py      # Quick viewer for an exported mesh
-├── metrics.py                      # precision_recall_f1 implementation
+├── training_foldingnet_ae.py       # Training loop
+├── eval_transfold.py               # Runs evaluation over the test set
+├── vis_test_foldingnet_ae.py       # Opens an Open3D window with original vs reconstruction
+├── point_cloud_save.py             # Saves reconstructed point clouds to disk
+├── tri_meshes_alpha.py             # Runs alpha shape reconstruction on saved point clouds
+├── testing_pointcloud.py           # Quick sanity check — loads and displays one point cloud
+├── testing_triangular_mesh.py      # Quick sanity check — loads and displays one mesh
+├── metrics.py                      # precision_recall_f1 function
 │
 ├── data/
-│   └── modelnet10_pc_2048/         # Preprocessed point clouds (.npy, 2048 pts each)
-│       └── <class>/train|test/
+│   └── modelnet10_pc_2048/         # Where preprocessed point clouds live
+│       └── <class>/train|test/*.npy
 │
-├── checkpoints_foldingnet/         # Per-epoch model checkpoints (.pth)
-├── checkpoints_transformer/        # Transformer-specific checkpoints
-├── exported_pointclouds/           # Saved original + reconstructed point clouds
-├── exported_meshes_alpha/          # Final mesh outputs (.ply, .obj, .mtl)
+├── checkpoints_foldingnet/         # Saved checkpoints, one per epoch
+├── checkpoints_transformer/
+├── exported_pointclouds/           # Raw .npy exports (original + reconstructed pairs)
+├── exported_meshes_alpha/          # Final mesh outputs
 │
 ├── requirements.txt
-└── log.txt                         # Training run log
+└── log.txt
 ```
 
 ---
 
-## Installation
+## Getting started
 
-**Requirements:** Python 3.8+, pip
+**Python 3.8+ required.**
 
 ```bash
-# 1. Clone the repository
+# Clone
 git clone https://github.com/yourusername/MeshGPT.git
 cd MeshGPT
 
-# 2. (Recommended) Create a virtual environment
+# Set up a virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-> **Apple Silicon (M1/M2/M3):** MPS acceleration is detected automatically. No extra steps needed.
->
-> **CUDA:** Ensure your PyTorch installation matches your CUDA version. Visit [pytorch.org](https://pytorch.org) for install options.
+> **Mac (M1/M2/M3):** MPS is detected and used automatically.
+> **CUDA:** Make sure your PyTorch version matches your CUDA version — see [pytorch.org](https://pytorch.org) for the right install command.
 
-### Dataset Setup
+### Dataset
 
-Download [ModelNet10](http://modelnet.cs.princeton.edu/) and preprocess it into point clouds:
+Download [ModelNet10](http://modelnet.cs.princeton.edu/) and run the preprocessing script to convert the raw `.off` meshes into point clouds:
 
 ```bash
 python scripts/preprocessing.py \
@@ -180,75 +180,55 @@ python scripts/preprocessing.py \
   --points 2048
 ```
 
-This samples 2048 points per mesh surface and saves normalized `.npy` files maintaining the class/train/test directory structure.
+This samples 2048 surface points per mesh, normalizes each cloud to a unit sphere, and saves the result as `.npy` files in the same class/train/test structure as the original dataset.
 
 ---
 
-## Quick Start
+## Running the pipeline
+
+Once your data is set up, the whole pipeline runs in five steps:
 
 ```bash
-# Step 1 — Preprocess raw meshes (skip if data/modelnet10_pc_2048 exists)
-python scripts/preprocessing.py --input_dir data/ModelNet10 --output_dir data/modelnet10_pc_2048
-
-# Step 2 — Train the autoencoder
+# 1. Train
 python training_foldingnet_ae.py
 
-# Step 3 — Visualize a reconstruction (interactive Open3D window)
+# 2. Spot-check a reconstruction visually
 python vis_test_foldingnet_ae.py
 
-# Step 4 — Export reconstructed point clouds
+# 3. Evaluate on the test set
+python eval_transfold.py
+
+# 4. Export reconstructed point clouds
 python point_cloud_save.py
 
-# Step 5 — Convert point clouds to triangular meshes
+# 5. Convert them to meshes
 python tri_meshes_alpha.py
 ```
 
-Meshes are saved to `exported_meshes_alpha/<class>/` in `.ply`, `.obj`, and `.mtl` formats.
+Meshes land in `exported_meshes_alpha/<class>/` as `.ply`, `.obj`, and `.mtl` files.
 
 ---
 
-## Usage
-
-### Training
+### Training details
 
 ```bash
 python training_foldingnet_ae.py
 ```
 
-Key hyperparameters (edit at the top of the file):
+Hyperparameters are set at the top of the file:
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
+| Parameter | Default | Notes |
+|-----------|---------|-------|
 | `num_points` | 2048 | Points per cloud |
-| `d_model` | 128 | Transformer embedding dimension |
-| `num_layers` | 4 | Transformer encoder depth |
+| `d_model` | 128 | Transformer embedding size |
+| `num_layers` | 4 | Encoder depth |
 | `nhead` | 4 | Attention heads |
 | `latent_dim` | 256 | Bottleneck size |
-| `num_epochs` | 80 | Training epochs |
-| `batch_size` | 4 | Batch size |
-| `lr` | 1e-4 | Adam learning rate |
+| `num_epochs` | 80 | |
+| `batch_size` | 4 | |
+| `lr` | 1e-4 | Adam |
 
-Checkpoints are saved after every epoch to `checkpoints_foldingnet/foldingnet_epoch{N}.pth`.
-
----
-
-### Evaluation
-
-```bash
-python eval_transfold.py
-```
-
-Computes **Precision**, **Recall**, and **F1** over the test set at a distance threshold of `tau=0.03`. Each sample is evaluated both raw and after ICP alignment to account for rigid-body differences.
-
-```
-Sample 42 | Chair
-  Raw  -> P: 0.5234 | R: 0.4892 | F1: 0.5060
-  ICP  -> P: 0.6120 | R: 0.5847 | F1: 0.5983
-
-Average over test set:
-  Raw  -> P: 0.5102 | R: 0.4744 | F1: 0.4916
-  ICP  -> P: 0.6034 | R: 0.5711 | F1: 0.5868
-```
+A checkpoint is saved after every epoch to `checkpoints_foldingnet/foldingnet_epoch{N}.pth`, so you can resume or roll back to any point in training.
 
 ---
 
@@ -258,30 +238,64 @@ Average over test set:
 python vis_test_foldingnet_ae.py
 ```
 
-Opens an interactive Open3D window showing:
-- **Blue** — original input point cloud
-- **Red** — ICP-aligned reconstruction
-
-Metrics are printed to the console alongside the visualization.
+Picks a random test sample, runs it through the model, and opens an Open3D window with the original (blue) and the ICP-aligned reconstruction (red) side by side. Precision/recall/F1 are printed to the console.
 
 ---
 
-### Mesh Export
+### Mesh export
 
 ```bash
-# Export reconstructed point clouds
-python point_cloud_save.py
-
-# Convert point clouds to alpha shape meshes
-python tri_meshes_alpha.py
+python point_cloud_save.py   # saves original + reconstructed .npy pairs
+python tri_meshes_alpha.py   # runs alpha shapes on the reconstructions
 ```
 
-Alpha shape parameters (edit in `tri_meshes_alpha.py`):
+You can tune the surface reconstruction in `tri_meshes_alpha.py`:
 
 | Parameter | Default | Effect |
 |-----------|---------|--------|
-| `alpha` | 0.09 | Smaller = more detail; larger = smoother surface |
-| `voxel_size` | 0.02 | Downsampling voxel size (applied if >5000 points) |
+| `alpha` | 0.09 | Lower = more detail, higher = smoother (more holes) |
+| `voxel_size` | 0.02 | Downsampling applied if the cloud has >5000 points |
+
+---
+
+### Quick viewers
+
+```bash
+python testing_pointcloud.py      # view a raw point cloud
+python testing_triangular_mesh.py # view a mesh with wireframe overlay
+```
+
+---
+
+## Evaluating results
+
+We use point-level **Precision**, **Recall**, and **F1** at a distance threshold `tau=0.03` (roughly 3% of the unit sphere radius):
+
+- **Precision** — what fraction of your predicted points are actually close to the ground truth?
+- **Recall** — what fraction of the ground truth points did you actually cover?
+- **F1** — the harmonic mean, balancing both
+
+We run metrics twice: once raw, and once after ICP alignment. ICP removes any rigid-body offset between the reconstruction and the original, so the second number isolates shape quality from pose.
+
+```python
+from metrics import precision_recall_f1
+
+p, r, f1 = precision_recall_f1(pred_pc, gt_pc, tau=0.03)
+```
+
+Example output from `eval_transfold.py`:
+
+```
+Sample 42 | Chair
+  Raw  -> P: 0.5234 | R: 0.4892 | F1: 0.5060
+  ICP  -> P: 0.6120 | R: 0.5847 | F1: 0.5983
+```
+
+---
+
+## Example outputs
+
+The exported meshes are triangulated surfaces reconstructed from the decoder's output. Each one is saved with a soft blue-grey vertex color and slight transparency (α=0.85), and the viewer shows a wireframe overlay so you can see the triangle structure.
 
 Output per sample:
 ```
@@ -294,75 +308,30 @@ exported_meshes_alpha/
 
 ---
 
-### Quick Viewers
-
-```bash
-# View a raw point cloud
-python testing_pointcloud.py
-
-# View an exported mesh with wireframe overlay
-python testing_triangular_mesh.py
-```
-
----
-
-## Evaluation
-
-Reconstruction quality is measured using point-level **Precision**, **Recall**, and **F1** at a configurable distance threshold `tau`:
-
-- **Precision** — fraction of predicted points within `tau` of any ground-truth point
-- **Recall** — fraction of ground-truth points within `tau` of any predicted point
-- **F1** — harmonic mean of precision and recall
-
-ICP (Iterative Closest Point) alignment is applied before the second round of metrics to isolate shape quality from pose differences.
-
-```python
-from metrics import precision_recall_f1
-
-p, r, f1 = precision_recall_f1(pred_pc, gt_pc, tau=0.03)
-```
-
----
-
-## Example Outputs
-
-The pipeline produces triangulated meshes from learned latent representations of ModelNet10 shapes. Output meshes use:
-- **Vertex color:** soft blue-grey `[0.7, 0.75, 0.8]`
-- **Transparency:** 0.85 (encoded in `.mtl`)
-- **Wireframe overlay:** enabled in the viewer
-
-Exported files per sample: `.ply` (binary), `.obj` (Wavefront), `.mtl` (material).
-
----
-
 ## Contributing
 
-Contributions are welcome. To get started:
+If you want to extend this, here are some directions worth exploring:
 
-1. Fork the repository and create a branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+- **Alternative decoders** — flow-based or diffusion-based decoders instead of FoldingNet
+- **More datasets** — ShapeNet55 would be a natural next step
+- **CLI config** — right now hyperparameters live in the training script; a config file or argparse would make experiments cleaner
+- **Surface reconstruction** — marching cubes or Poisson reconstruction as alternatives to alpha shapes
+- **Benchmarks** — comparison against FoldingNet, PCN, or other point cloud autoencoders
 
-2. Make your changes, keeping code style consistent with the existing scripts.
+To contribute:
 
-3. Test your changes end-to-end (preprocessing → training → eval).
+```bash
+git checkout -b feature/your-feature-name
+```
 
-4. Open a pull request with a clear description of what was changed and why.
-
-**Areas open for contribution:**
-- Additional decoder architectures (e.g., flow-based, diffusion)
-- Support for ShapeNet or other datasets
-- Configurable training via CLI args or a config file
-- Marching cubes as an alternative surface reconstruction method
-- Quantitative benchmarks against other point cloud autoencoders
+Make your changes, test end-to-end (preprocessing → training → eval), and open a pull request explaining what you changed and why.
 
 ---
 
 ## License
 
-This project is released under the [MIT License](LICENSE).
+[MIT](LICENSE)
 
 ---
 
-*Built on [ModelNet10](http://modelnet.cs.princeton.edu/) · PyTorch · Open3D · trimesh*
+*Built with PyTorch · Open3D · trimesh · ModelNet10*
