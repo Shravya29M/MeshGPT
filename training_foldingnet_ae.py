@@ -1,5 +1,3 @@
-# train_foldingnet_ae.py
-
 import os
 import torch
 from torch.utils.data import DataLoader
@@ -39,7 +37,7 @@ def main():
         model.load_state_dict(torch.load(load_ckpt, map_location=device))
         print(f"Loaded pretrained weights from {load_ckpt}")
     else:
-        print("⚠ No pretrained checkpoint found — training from scratch.")
+        print("No checkpoint found — training from scratch.")
     optimizer = Adam(model.parameters(), lr=1e-4)
 
     num_epochs = 80
@@ -47,7 +45,6 @@ def main():
     os.makedirs(ckpt_dir, exist_ok=True)
 
     for epoch in range(1, num_epochs + 1):
-        # -------- TRAIN --------
         model.train()
         train_loss = 0.0
 
@@ -86,7 +83,6 @@ def main():
         print(f"Epoch {epoch}/{num_epochs} | "
               f"Train Loss: {train_loss:.6f} | Val Loss: {val_loss:.6f}")
 
-    # save EACH epoch (or every 10th if you want)
     ckpt_path = os.path.join(ckpt_dir, f"foldingnet_epoch{epoch}.pth")
     torch.save(model.state_dict(), ckpt_path)
 
